@@ -5,12 +5,21 @@ import { Canvas } from "@react-three/fiber";
 import { OrbitControls } from "@react-three/drei";
 import Experience from "./Experience";
 import { EffectComposer, Bloom } from "@react-three/postprocessing";
+import { RingConfig, SectionId } from "../data/content";
 
 type SceneCanvasProps = {
   scrollRef: MutableRefObject<number>;
+  activeSection: SectionId;
+  audioLevel: number;
+  ringConfigs: RingConfig[];
 };
 
-export default function SceneCanvas({ scrollRef }: SceneCanvasProps) {
+export default function SceneCanvas({
+  scrollRef,
+  activeSection,
+  audioLevel,
+  ringConfigs
+}: SceneCanvasProps) {
   return (
     <div className="pointer-events-none fixed inset-0 -z-10">
       <Canvas
@@ -19,7 +28,12 @@ export default function SceneCanvas({ scrollRef }: SceneCanvasProps) {
       >
         <color attach="background" args={["#000000"]} />
         <Suspense fallback={null}>
-          <Experience scrollRef={scrollRef} />
+          <Experience
+            scrollRef={scrollRef}
+            activeSection={activeSection}
+            audioLevel={audioLevel}
+            ringConfigs={ringConfigs}
+          />
           <EffectComposer>
             <Bloom
               intensity={1.5}

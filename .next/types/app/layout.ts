@@ -1,4 +1,4 @@
-// File: C:\Users\jason\Documents\Cousor\動畫滾動網站製作\app\layout.tsx
+// File: C:\Users\ASUS\Desktop\code\動畫滾動網站製作\app\layout.tsx
 import * as entry from '../../../app/layout.js'
 import type { ResolvingMetadata, ResolvingViewport } from 'next/dist/lib/metadata/types/metadata-interface.js'
 
