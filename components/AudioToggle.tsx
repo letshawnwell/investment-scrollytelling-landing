@@ -57,7 +57,9 @@ export default function AudioToggle({
 
     const loop = () => {
       if (!analyserRef.current || !dataArrayRef.current) return;
-      analyserRef.current.getByteFrequencyData(dataArrayRef.current);
+      analyserRef.current.getByteFrequencyData(
+        dataArrayRef.current as Uint8Array<ArrayBuffer>
+      );
       const values = dataArrayRef.current;
       let sum = 0;
       for (let i = 0; i < values.length; i++) {
