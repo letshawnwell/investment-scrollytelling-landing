@@ -27,7 +27,7 @@ type SectionContent = {
   cta?: { label: string; href: string };
 };
 
-type PageContent = {
+export type PageContent = {
   brand: {
     name: string;
     tagline: string;

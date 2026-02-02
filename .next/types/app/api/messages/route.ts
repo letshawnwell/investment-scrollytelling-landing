@@ -1,4 +1,4 @@
-// File: C:\Users\ASUS\Desktop\code\動畫滾動網站製作\app\api\messages\route.ts
+// File: C:\Users\jason\documents\cousor\動畫滾動網站製作\app\api\messages\route.ts
 import * as entry from '../../../../../app/api/messages/route.js'
 import type { NextRequest } from 'next/server.js'
 

@@ -1,7 +1,11 @@
 {
-  "/api/logout/route": "app/api/logout/route.js",
-  "/api/login/route": "app/api/login/route.js",
+  "/_not-found/page": "app/_not-found/page.js",
   "/api/content/route": "app/api/content/route.js",
-  "/api/messages/route": "app/api/messages/route.js",
-  "/page": "app/page.js"
+  "/api/login/route": "app/api/login/route.js",
+  "/admin/page": "app/admin/page.js",
+  "/api/logout/route": "app/api/logout/route.js",
+  "/api/messages/export/route": "app/api/messages/export/route.js",
+  "/page": "app/page.js",
+  "/api/upload/route": "app/api/upload/route.js",
+  "/api/messages/route": "app/api/messages/route.js"
 }
