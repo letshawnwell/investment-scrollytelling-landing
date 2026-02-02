@@ -1,0 +1,3 @@
+# 靜態資源放這裡
+# 請將專案根目錄的 LOGO.png、LOGO-2.png、lvm001310_64k.mp3 複製到此 public 資料夾，
+# 再 git add、commit、push，部署後 logo 與音樂才會正常顯示。

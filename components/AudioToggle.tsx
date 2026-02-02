@@ -27,7 +27,13 @@ export default function AudioToggle({
     audio.volume = 0.5;
     audioRef.current = audio;
 
+    const onAudioError = () => {
+      setError("音樂檔案無法載入");
+    };
+    audio.addEventListener("error", onAudioError);
+
     return () => {
+      audio.removeEventListener("error", onAudioError);
       audio.pause();
       audioRef.current = null;
       if (rafRef.current) cancelAnimationFrame(rafRef.current);

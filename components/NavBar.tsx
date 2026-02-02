@@ -1,6 +1,6 @@
 'use client';
 
-import React from "react";
+import React, { useState } from "react";
 import Image from "next/image";
 import { SectionId } from "../data/content";
 import AudioToggle from "./AudioToggle";
@@ -28,6 +28,8 @@ export default function NavBar({
   wordmarkSrc = "/LOGO-2.png",
   audioSrc
 }: Props) {
+  const [logoError, setLogoError] = useState(false);
+  const [wordmarkError, setWordmarkError] = useState(false);
 
   const handleClick = (id: SectionId) => (evt: React.MouseEvent) => {
     evt.preventDefault();
@@ -38,22 +40,39 @@ export default function NavBar({
     <header className="fixed inset-x-0 top-0 z-40">
       <div className="mx-auto flex max-w-6xl items-center justify-between gap-6 px-5 py-4 md:px-8">
         <div className="logo-animate relative flex items-center gap-3 overflow-hidden">
-          <Image
-            src={logoSrc}
-            alt="Brand icon"
-            width={36}
-            height={36}
-            priority
-            className="h-9 w-9"
-          />
-          <Image
-            src={wordmarkSrc}
-            alt={brandName}
-            width={180}
-            height={32}
-            priority
-            className="hidden h-7 w-auto sm:block"
-          />
+          {!logoError ? (
+            <Image
+              src={logoSrc}
+              alt="Brand icon"
+              width={36}
+              height={36}
+              priority
+              className="h-9 w-9"
+              onError={() => setLogoError(true)}
+            />
+          ) : (
+            <div
+              className="flex h-9 w-9 items-center justify-center rounded-full bg-white/10 text-xs font-semibold text-white"
+              aria-hidden
+            >
+              {brandName.charAt(0)}
+            </div>
+          )}
+          {!wordmarkError ? (
+            <Image
+              src={wordmarkSrc}
+              alt={brandName}
+              width={180}
+              height={32}
+              priority
+              className="hidden h-7 w-auto sm:block"
+              onError={() => setWordmarkError(true)}
+            />
+          ) : (
+            <span className="hidden font-semibold text-white sm:block">
+              {brandName}
+            </span>
+          )}
         </div>
 
         <div className="flex items-center gap-4">
